@@ -155,9 +155,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Выбираем случайную позицию
         const pos = positions[Math.floor(Math.random() * positions.length)];
 
-        // Устанавливаем позицию
-        lyricElement.style.left = `${pos.x}px`;
-        lyricElement.style.top = `${pos.y}px`;
+        // Преобразуем пиксельные координаты в проценты от размера экрана
+        const percentX = (pos.x / windowWidth) * 100;
+        const percentY = (pos.y / windowHeight) * 100;
+        
+        // Устанавливаем позицию в процентах
+        lyricElement.style.left = `${percentX}%`;
+        lyricElement.style.top = `${percentY}%`;
 
         // Случайный поворот для разнообразия
         const rotation = getRandom(-15, 15);

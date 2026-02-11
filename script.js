@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardContainer = document.getElementById('card-container');
     const backgroundMusic = document.getElementById('background-music');
 
-    // Обработчик клика по сердцу
-    heartSeal.addEventListener('click', () => {
+    // Обработчик клика по контейнеру письма
+    letter.addEventListener('click', () => {
         // Плавно скрываем сердце
         heartSeal.style.opacity = '0';
         

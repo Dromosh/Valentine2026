@@ -90,7 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Получаем размеры карточки
         const cardRect = cardContainer.getBoundingClientRect();
-        const containerRect = document.body.getBoundingClientRect();
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
 
         // Вычисляем безопасную зону вокруг карточки (отступ 100px)
         const safeMargin = 150;
@@ -99,43 +100,55 @@ document.addEventListener('DOMContentLoaded', () => {
         const positions = [
             // Сверху
             {
-                x: getRandom(cardRect.left + safeMargin, cardRect.right - safeMargin),
-                y: cardRect.top - 100
+                x: getRandom(
+                    Math.max(safeMargin, cardRect.left + safeMargin), 
+                    Math.min(windowWidth - safeMargin, cardRect.right - safeMargin)
+                ),
+                y: Math.max(safeMargin, cardRect.top - 100)
             },
             // Снизу
             {
-                x: getRandom(cardRect.left + safeMargin, cardRect.right - safeMargin),
-                y: cardRect.bottom + 50
+                x: getRandom(
+                    Math.max(safeMargin, cardRect.left + safeMargin), 
+                    Math.min(windowWidth - safeMargin, cardRect.right - safeMargin)
+                ),
+                y: Math.min(windowHeight - safeMargin, cardRect.bottom + 50)
             },
             // Слева
             {
-                x: cardRect.left - getRandom(100, 300),
-                y: getRandom(cardRect.top, cardRect.bottom)
+                x: Math.max(safeMargin, cardRect.left - getRandom(100, 300)),
+                y: getRandom(
+                    Math.max(safeMargin, cardRect.top), 
+                    Math.min(windowHeight - safeMargin, cardRect.bottom)
+                )
             },
             // Справа
             {
-                x: cardRect.right + getRandom(100, 300),
-                y: getRandom(cardRect.top, cardRect.bottom)
+                x: Math.min(windowWidth - safeMargin, cardRect.right + getRandom(100, 300)),
+                y: getRandom(
+                    Math.max(safeMargin, cardRect.top), 
+                    Math.min(windowHeight - safeMargin, cardRect.bottom)
+                )
             },
             // Верхний левый угол
             {
-                x: cardRect.left - getRandom(100, 250),
-                y: cardRect.top - getRandom(50, 150)
+                x: Math.max(safeMargin, cardRect.left - getRandom(100, 250)),
+                y: Math.max(safeMargin, cardRect.top - getRandom(50, 150))
             },
             // Верхний правый угол
             {
-                x: cardRect.right + getRandom(100, 250),
-                y: cardRect.top - getRandom(50, 150)
+                x: Math.min(windowWidth - safeMargin, cardRect.right + getRandom(100, 250)),
+                y: Math.max(safeMargin, cardRect.top - getRandom(50, 150))
             },
             // Нижний левый угол
             {
-                x: cardRect.left - getRandom(100, 250),
-                y: cardRect.bottom + getRandom(50, 150)
+                x: Math.max(safeMargin, cardRect.left - getRandom(100, 250)),
+                y: Math.min(windowHeight - safeMargin, cardRect.bottom + getRandom(50, 150))
             },
             // Нижний правый угол
             {
-                x: cardRect.right + getRandom(100, 250),
-                y: cardRect.bottom + getRandom(50, 150)
+                x: Math.min(windowWidth - safeMargin, cardRect.right + getRandom(100, 250)),
+                y: Math.min(windowHeight - safeMargin, cardRect.bottom + getRandom(50, 150))
             }
         ];
 

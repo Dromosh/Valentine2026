@@ -140,6 +140,8 @@ body {
     transition: opacity 0.3s ease;
     z-index: 1000;
     white-space: nowrap;
+    max-width: calc(100vw - 20px);
+    word-wrap: break-word;
 }
 
 .lyric.show {

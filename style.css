@@ -81,6 +81,7 @@ body {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
+    z-index: 1001;
 }
 
 .card-container.active {
@@ -108,6 +109,7 @@ body {
     background-size: 60px;
     background-repeat: no-repeat;
     animation: fadeInCard 0.5s forwards;
+    z-index: 1002;
 }
 
 .card h2 {

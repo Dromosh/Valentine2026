@@ -120,6 +120,7 @@ body {
     color: #333;
     font-size: 1.2rem;
     line-height: 1.5;
+    text-align: justify;
 }
 
 /* Анимация для карточки */
@@ -136,8 +137,10 @@ body {
     }
     
     .card {
-        width: 80vw;
-        height: 60vh;
+        width: min(80vw, 400px);
+        height: min(60vh, 400px);
+        max-width: 90%;
+        max-height: 80%;
     }
     
     .card h2 {
@@ -146,6 +149,7 @@ body {
     
     .card p {
         font-size: 1rem;
+        text-align: justify;
     }
 }
 
@@ -156,8 +160,10 @@ body {
     }
     
     .card {
-        width: 90vw;
-        height: 70vh;
+        width: min(90vw, 350px);
+        height: min(70vh, 350px);
+        max-width: 95%;
+        max-height: 85%;
     }
     
     .card h2 {
@@ -166,5 +172,6 @@ body {
     
     .card p {
         font-size: 0.9rem;
+        text-align: justify;
     }
 }

@@ -129,6 +129,47 @@ body {
     to { opacity: 1; transform: scale(1); }
 }
 
+.lyric {
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff4d4d;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    white-space: nowrap;
+}
+
+.lyric.show {
+    opacity: 1;
+}
+
+.lyric.fade-out {
+    opacity: 0;
+}
+
+button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+button:hover {
+    background-color: #ff3333;
+    transform: scale(1.05);
+}
+
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
     .letter {

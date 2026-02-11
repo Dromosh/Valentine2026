@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             // Справа
             {
-                x: Math.min(windowWidth - safeMargin, cardRect.right + getRandom(100, 300)),
+                x: Math.min(windowWidth - safeMargin, cardRect.right + getRandom(10, 100)),
                 y: getRandom(
                     Math.max(safeMargin, cardRect.top), 
                     Math.min(windowHeight - safeMargin, cardRect.bottom)
@@ -137,8 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             // Верхний правый угол
             {
-                x: Math.min(windowWidth - safeMargin, cardRect.right + getRandom(100, 250)),
-                y: Math.max(safeMargin, cardRect.top - getRandom(50, 150))
+                x: Math.min(windowWidth - safeMargin, cardRect.right + getRandom(10, 100)),
+                y: Math.max(safeMargin, cardRect.top - getRandom(50, 100))
             },
             // Нижний левый угол
             {
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             // Нижний правый угол
             {
-                x: Math.min(windowWidth - safeMargin, cardRect.right + getRandom(100, 250)),
+                x: Math.min(windowWidth - safeMargin, cardRect.right + getRandom(10, 100)),
                 y: Math.min(windowHeight - safeMargin, cardRect.bottom + getRandom(50, 150))
             }
         ];

@@ -38,6 +38,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Добавляем активный класс контейнеру карточки
             cardContainer.classList.add('active');
+            
+            // Автоматически запускаем воспроизведение музыки при открытии письма
+            if (!isPlaying) {
+                // Сбрасываем состояние
+                currentLyricIndex = 0;
+                lyricTimeouts.forEach(t => clearTimeout(t));
+                lyricTimeouts = [];
+
+                // Удаляем старые тексты
+                document.querySelectorAll('.lyric').forEach(el => el.remove());
+
+                // Проигрываем аудио
+                audioPlayer.currentTime = 0;
+                audioPlayer.play().then(() => {
+                    isPlaying = true;
+                    
+                    // Запускаем синхронизацию
+                    syncLyrics();
+                }).catch(error => {
+                    console.error('Ошибка воспроизведения:', error);
+                    alert('Не удалось воспроизвести аудио. Проверьте файл.');
+                });
+            }
         }, 500); // Соответствует времени анимации
     });
 
